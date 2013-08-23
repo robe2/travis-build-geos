@@ -1,7 +1,7 @@
 ---
 env:
   global:
-    - "LSB_INFO=$( echo $( lsb_release -irs ) \| tr \" \" _ )"
+    - LSB_INFO=travis$( lsb_release -rs )$( lsb_release -ms )
   matrix:
     - GEOS_VERSION=3.4.1
 before_install:
