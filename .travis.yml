@@ -1,7 +1,7 @@
 ---
 env:
   global:
-    - LSB_INFO=$( echo $( lsb_release -ir | cut -f2 -d: ) | tr " " _ )
+    - LSB_INFO=$( echo $( lsb_release -ir | cut -f2 -d\: ) | tr " " _ )
   matrix:
     - GEOS_VERSION=3.4.1
 before_install:
