@@ -1,7 +1,5 @@
 ---
 env:
-  global:
-    - "LSB_INFO=travis$( lsb_release -rs )$( lsb_release -ms )"
   matrix:
     - GEOS_VERSION=3.4.1
 before_install:
@@ -11,10 +9,12 @@ before_install:
   - git config --global user.name "Build package TravisCI"
   - git config --global user.email $HOSTNAME":not-for-mail@travis-ci.org"
 install:
+  - export LSB_INFO=travis$( lsb_release -rs )$( lsb_release -ms )
   - wget -q http://download.osgeo.org/geos/geos-$GEOS_VERSION.tar.bz2
   - tar xvjf geos-$GEOS_VERSION.tar.bz2
   - ( cd geos-$GEOS_VERSION ./configure --prefix=/home/travis/geos-$GEOS_VERSION && make && make install )
   - tar cvzf geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz /home/travis/geos-$GEOS_VERSION
 language: c
 script:
+  - export LSB_INFO=travis$( lsb_release -rs )$( lsb_release -ms )
   - sendfile geos-$GEOS_VERSION.travis.$LSB_INFO getty@stardestroyer.de
