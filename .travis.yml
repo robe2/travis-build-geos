@@ -17,4 +17,4 @@ install:
 language: c
 script:
   - export LSB_INFO=travis$( lsb_release -rs )$( lsb_release -ms )
-  - sendfile geos-$GEOS_VERSION.travis.$LSB_INFO getty@stardestroyer.de
+  - sendfile geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz getty@stardestroyer.de
