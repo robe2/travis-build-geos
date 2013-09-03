@@ -11,6 +11,8 @@ before_install:
   - git config --global user.name "Build package TravisCI"
   - git config --global user.email $HOSTNAME":not-for-mail@travis-ci.org"
 language: c
+compiler:
+  - gcc
 script:
   - export LSB_INFO=$( lsb_release -rs )_$( lsb_release -ms )
   - wget -q http://download.osgeo.org/geos/geos-$GEOS_VERSION.tar.bz2
