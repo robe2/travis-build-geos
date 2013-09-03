@@ -1,7 +1,7 @@
 ---
 env:
   matrix:
-    - GEOS_VERSION=3.4.1
+    - GEOS_VERSION=3.4.2
     - GEOS_VERSION=3.3.8
     - GEOS_VERSION=3.2.3
 before_install:
@@ -17,4 +17,4 @@ script:
   - tar xvjf geos-$GEOS_VERSION.tar.bz2
   - ( cd geos-$GEOS_VERSION && ./configure --prefix=/home/travis/geos-$GEOS_VERSION && make && make install )
   - tar cvzf geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz /home/travis/geos-$GEOS_VERSION
-  - sendfile geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz getty@stardestroyer.de
+  - sendfile geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz lr@pcorp.us
