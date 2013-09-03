@@ -18,5 +18,6 @@ script:
   - wget -q http://download.osgeo.org/geos/geos-$GEOS_VERSION.tar.bz2
   - tar xvjf geos-$GEOS_VERSION.tar.bz2
   - ( cd geos-$GEOS_VERSION && ./configure --prefix=/home/travis/geos-$GEOS_VERSION && make && make install )
+  - ldconfig
   - tar cvzf geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz /home/travis/geos-$GEOS_VERSION
-  - sendfile geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz lr@pcorp.us
+  #- sendfile geos-$GEOS_VERSION.travis.$LSB_INFO.tar.gz lr@pcorp.us
